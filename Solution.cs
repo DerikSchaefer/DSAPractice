@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DSAPractice;
 
 public class Solution
 {
@@ -73,118 +72,130 @@ public class Solution
       }
     */
 
-    /*#region https://leetcode.com/problems/roman-to-integer/ 
-    Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
+    /*    #region https://leetcode.com/problems/roman-to-integer/ 
 
-    Symbol Value
-    I             1
-    V             5
-    X             10
-    L             50
-    C             100
-    D             500
-    M             1000
-    For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II.The number 27 is written as XXVII, which is XX + V + II.
+        Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
-    Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV.Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX.There are six instances where subtraction is used:
+        Symbol Value
+        I             1
+        V             5
+        X             10
+        L             50
+        C             100
+        D             500
+        M             1000
+        For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II.The number 27 is written as XXVII, which is XX + V + II.
 
-    I can be placed before V (5) and X(10) to make 4 and 9. 
-    X can be placed before L(50) and C(100) to make 40 and 90. 
-    C can be placed before D(500) and M(1000) to make 400 and 900.
-    Given a roman numeral, convert it to an integer.
+        Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not IIII. Instead, the number four is written as IV.Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX.There are six instances where subtraction is used:
 
-
-
-    Example 1:
-
-    Input: s = "III"
-    Output: 3
-    Explanation: III = 3.
-    Example 2:
-
-    Input: s = "LVIII"
-    Output: 58
-    Explanation: L = 50, V= 5, III = 3.
-    Example 3:
-
-    Input: s = "MCMXCIV"
-    Output: 1994
-    Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.*/
-
-    public int RomanToInt(string s)
-    {
-
-
-        // Create a Dictionary with all the Roman numerals as keys and the integer values as the values
+        I can be placed before V (5) and X(10) to make 4 and 9. 
+        X can be placed before L(50) and C(100) to make 40 and 90. 
+        C can be placed before D(500) and M(1000) to make 400 and 900.
+        Given a roman numeral, convert it to an integer.
 
 
 
+        Example 1:
 
+        Input: s = "III"
+        Output: 3
+        Explanation: III = 3.
+        Example 2:
 
-        int result = 0;
+        Input: s = "LVIII"
+        Output: 58
+        Explanation: L = 50, V= 5, III = 3.
+        Example 3:
 
+        Input: s = "MCMXCIV"
+        Output: 1994
+        Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
-        Dictionary<char, int> Romans = new Dictionary<char, int>();
-
-        Romans.Add('I', 1);
-        Romans.Add('V', 5);
-        Romans.Add('X', 10);
-        Romans.Add('L', 50);
-        Romans.Add('C', 100);
-        Romans.Add('D', 500);
-        Romans.Add('M', 1000);
-
-
-
-
-        for (int i = 0; i < s.Length; i++)
+     public class Solution
         {
-            if (i == s.Length - 1)
+            public int RomanToInt(string s)
             {
-                result += Romans[s[i]];
-            }
 
-            else if (Romans[s[i]] == 1 && Romans[s[i + 1]] == 5)
-            {
-                // did three and 8 instead of 4 and 9 because I think the 1 from the previous value 'I' will already have been added 
-                result += 4;
-                i++;
-            }
-            else if (Romans[s[i]] == 1 && Romans[s[i + 1]] == 10)
-            {
-                result += 9;
-                i++;
-            }
-            else if (Romans[s[i]] == 10 && Romans[s[i + 1]] == 100)
-            {
-                result += 90;
-                i++;
-            }
-            else if (Romans[s[i]] == 10 && Romans[s[i + 1]] == 50)
-            {
-                result += 40;
-                i++;
-            }
-            else if (Romans[s[i]] == 100 && Romans[s[i + 1]] == 500)
-            {
-                result += 400;
-                i++;
-            }
-            else if (Romans[s[i]] == 100 && Romans[s[i + 1]] == 1000)
-            {
-                result += 900;
-                i++;
-            }
-            else
-            {
-                result += Romans[s[i]];
+                int result = 0;
+
+                Dictionary<char, int> Romans = new Dictionary<char, int>();
+
+                Romans.Add('I', 1);
+                Romans.Add('V', 5);
+                Romans.Add('X', 10);
+                Romans.Add('L', 50);
+                Romans.Add('C', 100);
+                Romans.Add('D', 500);
+                Romans.Add('M', 1000);
+
+                for (int i = 0; i < s.Length; i++)
+                {
+                    if (i == s.Length - 1)
+                    {
+                        result += Romans[s[i]];
+                    }
+                    else if (Romans[s[i]] == 1 && Romans[s[i + 1]] == 5)
+                    {
+                        result += 4;
+                        i++;
+                    }
+                    else if (Romans[s[i]] == 1 && Romans[s[i + 1]] == 10)
+                    {
+                        result += 9;
+                        i++;
+                    }
+                    else if (Romans[s[i]] == 10 && Romans[s[i + 1]] == 100)
+                    {
+                        result += 90;
+                        i++;
+                    }
+                    else if (Romans[s[i]] == 10 && Romans[s[i + 1]] == 50)
+                    {
+                        result += 40;
+                        i++;
+                    }
+                    else if (Romans[s[i]] == 100 && Romans[s[i + 1]] == 500)
+                    {
+                        result += 400;
+                        i++;
+                    }
+                    else if (Romans[s[i]] == 100 && Romans[s[i + 1]] == 1000)
+                    {
+                        result += 900;
+                        i++;
+                    }
+                    else
+                    {
+                        result += Romans[s[i]];
+                    }
+                }
+                return result;
             }
         }
-        Console.WriteLine(result);
-        Console.ReadLine();
-        return result;
+        #endregion*/
+
+    public ListNode MergeTwoLists(ListNode list1, ListNode list2)
+    {
+
+        if (list1 == null)
+        {
+            return list2;
+        }
+
+        if (list2 == null)
+        {
+            return list1;
+        }
+
+        if (list1.val < list2.val)
+        {
+            list1.next = MergeTwoLists(list1.next, list2);
+            return list1;
+        }
+        else
+        {
+            list2.next = MergeTwoLists(list2.next, list1);
+            return list2;
+        }
     }
 }
-
-
-
