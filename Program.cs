@@ -9,10 +9,11 @@ namespace DSAPractice
 
             var solution = new Solutions();
 
-            int[] nums = { 3, 2, 2, 3 };
+            int[] nums = { 0, 1, 2, 2, 3, 0, 4, 2 };
             int value = 2;
             int k = solution.RemoveElement(nums, value);
 
+         
 
             Console.WriteLine(k);
             Console.ReadLine();
