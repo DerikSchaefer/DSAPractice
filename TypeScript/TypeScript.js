@@ -1,9 +1,22 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.removeElement = void 0;
-/*https://leetcode.com/problems/remove-element/*/
-function removeElement(nums, val) {
-    return 0;
+/*https:*/ /*//leetcode.com/problems/remove-element/*/
+/*export function removeElement(nums: number[], val: number): number {
+
+
+    var left: number = 0;
+    var right: number = nums.length - 1;
+
+    while (left <= right) {
+        if (nums[left] == val) {
+            nums[left] = nums[right];
+            right--;
+        }
+        else {
+            left++;
+        }
+
+
+    }
+    return left;
 }
-exports.removeElement = removeElement;
+*/
 //# sourceMappingURL=TypeScript.js.map
